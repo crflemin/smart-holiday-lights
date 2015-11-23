@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="379dp"
+        android:id="@+id/imageView"
+        android:cropToPadding="true"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/ic_launcher" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Connect to Bluetooth"
+        android:id="@+id/bluetooth_cnt"
+        android:layout_gravity="center_horizontal"
+        android:allowUndo="true" />
+
+</LinearLayout>
+
