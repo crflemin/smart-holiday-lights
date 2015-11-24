@@ -2,66 +2,53 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:layout_weight="0.15"
-        android:text="Select Pattern"
-        android:editable="false" />
-
-    <Switch
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ON/OFF"
-        android:id="@+id/switch_lights"
-        android:layout_weight="0.15"
-        android:layout_gravity="right" />
-
+    android:weightSum="1"
+    android:id="@+id/customization_fragment">
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.03">
+        android:layout_weight="0.04">
 
-        <Button
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="102dp"
-            android:text="Pattern A"
-            android:id="@+id/pattern_a"
-            android:layout_weight="1" />
+            android:layout_height="wrap_content"
+            android:text="Select a color pattern"
+            android:textSize="@dimen/abc_text_size_title_material"
+            android:layout_weight="0.04" />
 
-        <Button
+        <Switch
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:text="Pattern B"
-            android:id="@+id/pattern_b"
-            android:layout_weight="1" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="101dp"
-            android:text="Pattern C"
-            android:id="@+id/pattern_c"
-            android:layout_weight="1" />
+            android:layout_height="wrap_content"
+            android:layout_weight="0.04"
+            android:text="ON/OFF"
+            android:id="@+id/switch_lights"/>
     </LinearLayout>
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/status"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.15"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Advanced Settings"
-        android:id="@+id/advanced"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.15" />
+        android:layout_height="wrap_content">
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pattern_group">
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pattern_a"
+                android:checked="true"
+                android:id="@+id/pattern_a"/>
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pattern_b"
+                android:id="@+id/pattern_b"/>
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pattern_c"
+                android:id="@+id/pattern_c"/>
+        </RadioGroup>
+    </ScrollView>
 
 </LinearLayout>

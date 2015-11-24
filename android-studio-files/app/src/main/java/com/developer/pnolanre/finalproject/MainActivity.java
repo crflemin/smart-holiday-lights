@@ -21,9 +21,7 @@ public class MainActivity extends Activity {
         mBluetooth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent i = new Intent(MainActivity.this, CustomizationActivity.class);
-                //startActivity(i);
-                Toast.makeText(MainActivity.this, "awesome", Toast.LENGTH_SHORT).show();
+
                 Intent i = new Intent(MainActivity.this, CustomizationActivity.class);
                 startActivity(i);
 

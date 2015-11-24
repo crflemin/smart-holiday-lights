@@ -2,12 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools">
+
     <fragment
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:name="com.developer.pnolanre.finalproject.Patterns_fragment"
         android:id="@+id/customization_fragment"
-        tools:layout="@layout/fragment_patterns"/>
+        tools:layout="@layout/fragment_patterns" />
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:name="com.developer.pnolanre.finalproject.Color_fragment"
+        android:id="@+id/color_fragment"
+        android:layout="@layout/fragment_color"
+        tools:layout="@layout/fragment_color" />
+
+
 
 </LinearLayout>

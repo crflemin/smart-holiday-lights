@@ -1,12 +1,14 @@
 <resources>
     <string name="app_name">SmartHoliday Light Show</string>
     <string name="action_settings">Settings</string>
-    <string name="pattern_a">Now showing pattern A</string>
-
+    <string name="pattern_a">Pattern A: blinking lights</string>
+    <string name="pattern_b">Pattern B: Multicolor Lights</string>
+    <string name="pattern_c">Pattern C: Dancing lights </string>
     <string name="color_menu_title">Customize Light Color</string>
     <string name="red_button">Max Red</string>
     <string name="green_button">Max Green</string>
     <string name="blue_button">Max Blue</string>
     <string name="send_color_button">Set Color</string>
+
 
 </resources>
