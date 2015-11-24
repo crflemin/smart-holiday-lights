@@ -13,10 +13,10 @@ void setup() {
   strip.begin();
   
   colors[0] = 0;
-  colors[1] = 255;
+  colors[1] = 100;
   colors[2] = 0;
   
-  patternType = 'a';
+  patternType = 1;
 }
 
 void loop() {
@@ -69,15 +69,15 @@ void loop() {
   // decide which light pattern to program on the LEDs
   switch (patternType)
   {
-      case 'a':
+      case 0:
         showPatternA();
         break;
         
-      case 'b':
+      case 1':
         showPatternB();
         break;
          
-      case 'c':
+      case 2:
         showPatternC();
         break;
         
