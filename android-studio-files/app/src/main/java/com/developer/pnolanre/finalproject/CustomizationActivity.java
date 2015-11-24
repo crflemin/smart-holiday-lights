@@ -18,10 +18,6 @@ public class CustomizationActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customization_activity);
 
-        //FragmentManager fm = getSupportFragmentManager();
-        //Patterns_fragment pf = (Patterns_fragment)fm.findFragmentById(R.id.customization_fragment);
-        //Color_fragment cf = (Color_fragment)fm.findFragmentById(R.id.color_fragment);
-
     }
 
 }

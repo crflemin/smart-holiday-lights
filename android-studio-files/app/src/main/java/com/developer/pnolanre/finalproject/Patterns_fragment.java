@@ -16,8 +16,9 @@ import android.widget.Toast;
  * Created by pnolanre on 11/23/2015.
  */
 public class Patterns_fragment extends Fragment implements RadioGroup.OnCheckedChangeListener {
-    Button mPatternA, mPatternB, mPatternC;
+
     Switch mLightsSwitch;
+
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
@@ -29,9 +30,9 @@ public class Patterns_fragment extends Fragment implements RadioGroup.OnCheckedC
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    Toast.makeText(getActivity(),"Turning ON LED Lights",Toast.LENGTH_SHORT);
+
                 } else {
-                    Toast.makeText(getActivity(),"Turning OFF LED lights",Toast.LENGTH_SHORT);
+
                 }
 
             }
@@ -51,7 +52,6 @@ public class Patterns_fragment extends Fragment implements RadioGroup.OnCheckedC
         int index = -1;
         switch(id){
             case R.id.pattern_a:
-                Toast.makeText(getActivity(),"Turning ON LED Lights",Toast.LENGTH_SHORT);
                 index = 0;
                 break;
             case R.id.pattern_b:
