@@ -11,13 +11,21 @@
         android:id="@+id/imageView"
         android:cropToPadding="true"
         android:adjustViewBounds="true"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@drawable/christmas_penguin" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Connect to Bluetooth"
-        android:id="@+id/bluetooth_cnt"
+        android:text="@string/bluetooth_button"
+        android:id="@+id/bluetooth_button"
+        android:layout_gravity="center_horizontal"
+        android:allowUndo="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/customize_button"
+        android:id="@+id/customize_button"
         android:layout_gravity="center_horizontal"
         android:allowUndo="true" />
 

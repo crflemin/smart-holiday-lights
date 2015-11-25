@@ -9,6 +9,10 @@
     <string name="green_button">Max Green</string>
     <string name="blue_button">Max Blue</string>
     <string name="send_color_button">Set Color</string>
-
+    <string name="bluetooth_button">Connect via Bluetooth</string>
+    <string name="customize_button">Customize Lights</string>
+    <string name="customize_failed_toast">Can\'t customize until you connect!</string>
+    <string name="bluetooth_unsupported_toast">Bluetooth not supported on this device!</string>
+    <string name="error_connecting_toast">Connection failed...</string>
 
 </resources>

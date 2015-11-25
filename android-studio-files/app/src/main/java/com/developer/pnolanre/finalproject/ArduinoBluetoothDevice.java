@@ -1,16 +1,15 @@
 package com.developer.pnolanre.finalproject;
-
 import android.bluetooth.BluetoothSocket;
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class ArduinoInterface {
+public class ArduinoBluetoothDevice {
 
-    private Connection mConnection;
+    private BluetoothConnection mConnection;
     private int mPatternCount;
 
-    public ArduinoInterface(BluetoothSocket socket, int numPatterns) throws ArduinoException {
-        mConnection = new Connection(socket);
+    public ArduinoBluetoothDevice(BluetoothSocket socket, int numPatterns) throws ArduinoException {
+        mConnection = new BluetoothConnection(socket);
         mPatternCount = numPatterns;
     }
 
@@ -51,11 +50,11 @@ public class ArduinoInterface {
     // Use this class to encapsulate the Bluetooth connection used by ArduinoInterface
     // This class was inspired by the ConnectionThread example on d.android.com:
     // http://developer.android.com/guide/topics/connectivity/bluetooth.html#ManagingAConnection
-    private class Connection {
+    private class BluetoothConnection {
         private final BluetoothSocket mmSocket;
         private final OutputStream mmOutStream;
 
-        public Connection(BluetoothSocket socket) throws ArduinoException {
+        public BluetoothConnection(BluetoothSocket socket) throws ArduinoException {
             mmSocket = socket;
             OutputStream tmpOut = null;
 
@@ -85,19 +84,6 @@ public class ArduinoInterface {
             catch (IOException e) {
                 throw new ArduinoException("Failed to close connection.");
             }
-        }
-    }
-
-    // Use this class to indicate to Activity that something has gone wrong so it can Toast an area
-    public class ArduinoException extends Exception {
-
-        private static final String sMessage = "Error communicating with arduino.";
-        public ArduinoException(){
-            super(sMessage);
-        }
-
-        public ArduinoException(String message) {
-            super(message);
         }
     }
 }
