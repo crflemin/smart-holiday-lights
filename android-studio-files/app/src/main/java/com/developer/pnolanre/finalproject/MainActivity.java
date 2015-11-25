@@ -41,6 +41,10 @@ public class MainActivity extends Activity {
                         Intent turnOn = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                         startActivityForResult(turnOn, BLUETOOTH_REQUEST_CODE);
                     }
+                    else{
+                        startBluetoothThread();
+
+                    }
                 }
                 else {
                     Toast.makeText(MainActivity.this, R.string.bluetooth_unsupported_toast, Toast.LENGTH_SHORT).show();
@@ -63,15 +67,20 @@ public class MainActivity extends Activity {
         });
     }
 
+    private void startBluetoothThread(){
+        try {
+
+            mThread = new BluetoothThread();
+            Toast.makeText(MainActivity.this, "Connecting...",Toast.LENGTH_LONG).show();
+            mThread.start();
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if (requestCode == BLUETOOTH_REQUEST_CODE) {
-            try {
-                mThread = new BluetoothThread();
-                mThread.start();
-            } catch (Exception e) {
-                Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
+            startBluetoothThread();
         }
     }
 
