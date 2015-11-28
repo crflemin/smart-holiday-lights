@@ -4,26 +4,12 @@
     android:layout_height="match_parent"
     android:weightSum="1"
     android:id="@+id/customization_fragment">
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0.04">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select a color pattern"
-            android:textSize="@dimen/abc_text_size_title_material"
-            android:layout_weight="0.04" />
-
-        <Switch
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.04"
-            android:text="ON/OFF"
-            android:id="@+id/switch_lights"/>
-    </LinearLayout>
+        android:text="@string/pattern_menu_title"
+        style="@style/AppTheme.Title"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -37,17 +23,38 @@
                 android:layout_height="wrap_content"
                 android:text="@string/pattern_a"
                 android:checked="true"
-                android:id="@+id/pattern_a"/>
+                android:id="@+id/pattern_a"
+                android:textSize="20sp"/>
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pattern_b"
-                android:id="@+id/pattern_b"/>
+                android:id="@+id/pattern_b"
+                android:textSize="20sp"/>
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pattern_c"
-                android:id="@+id/pattern_c"/>
+                android:id="@+id/pattern_c"
+                android:textSize="20sp"/>
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pattern_d"
+                android:id="@+id/pattern_d"
+                android:textSize="20sp"/>
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pattern_e"
+                android:id="@+id/pattern_e"
+                android:textSize="20sp"/>
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pattern_f"
+                android:id="@+id/pattern_f"
+                android:textSize="20sp"/>
         </RadioGroup>
     </ScrollView>
 

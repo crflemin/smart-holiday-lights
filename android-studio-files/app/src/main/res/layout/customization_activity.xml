@@ -21,6 +21,4 @@
         android:layout="@layout/fragment_color"
         tools:layout="@layout/fragment_color" />
 
-
-
 </LinearLayout>

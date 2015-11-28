@@ -25,7 +25,7 @@ public class CustomizationActivity extends FragmentActivity implements Customiza
     }
 
     public static void setArduino(BluetoothSocket socket) throws ArduinoException {
-        sArduino = new ArduinoBluetoothDevice(socket, 3); // TODO: change this to number of radio buttons
+        sArduino = new ArduinoBluetoothDevice(socket, 6); // TODO: change this to number of radio buttons
         // TODO: remove this - it is just a connection test
         sArduino.changeColor(255, 0, 0);
 

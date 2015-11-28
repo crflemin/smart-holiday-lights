@@ -1,13 +1,17 @@
 <resources>
     <string name="app_name">SmartHoliday Light Show</string>
     <string name="action_settings">Settings</string>
-    <string name="pattern_a">Pattern A: blinking lights</string>
-    <string name="pattern_b">Pattern B: Multicolor Lights</string>
-    <string name="pattern_c">Pattern C: Dancing lights </string>
-    <string name="color_menu_title">Customize Light Color</string>
-    <string name="red_button">Max Red</string>
-    <string name="green_button">Max Green</string>
-    <string name="blue_button">Max Blue</string>
+    <string name="pattern_menu_title">Change Pattern</string>
+    <string name="pattern_a">Solid Lights</string>
+    <string name="pattern_b">Alternating Pattern</string>
+    <string name="pattern_c">Chasing Lights</string>
+    <string name="pattern_d">Random</string>
+    <string name="pattern_e">Multicolor Christmas</string>
+    <string name="pattern_f">Multicolor Halloween</string>
+    <string name="color_menu_title">Change Color</string>
+    <string name="red_level">Red</string>
+    <string name="green_level">Green</string>
+    <string name="blue_level">Blue</string>
     <string name="send_color_button">Set Color</string>
     <string name="bluetooth_button">Connect via Bluetooth</string>
     <string name="customize_button">Customize Lights</string>

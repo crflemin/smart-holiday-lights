@@ -17,28 +17,11 @@ import android.widget.Toast;
  */
 public class Patterns_fragment extends Fragment implements RadioGroup.OnCheckedChangeListener {
 
-    Switch mLightsSwitch;
     CustomizationInterface pCustomization;
-
-
 
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_patterns,parent, false);
         pCustomization = (CustomizationInterface)getActivity();
-
-        mLightsSwitch = (Switch)v.findViewById(R.id.switch_lights);
-        //mLightsSwitch.setChecked(true);
-        mLightsSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-
-                } else {
-
-                }
-
-            }
-        });
         RadioGroup group = (RadioGroup)v.findViewById(R.id.pattern_group);
         group.setOnCheckedChangeListener(this);
 
@@ -62,6 +45,17 @@ public class Patterns_fragment extends Fragment implements RadioGroup.OnCheckedC
                 break;
             case R.id.pattern_c:
                 index = 2;
+                break;
+            case R.id.pattern_d:
+                index = 3;
+                break;
+            case R.id.pattern_e:
+                index = 4;
+                break;
+            case R.id.pattern_f:
+                index = 5;
+                break;
+            default:
                 break;
         }
         return index;
