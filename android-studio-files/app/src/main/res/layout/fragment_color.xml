@@ -84,8 +84,11 @@
 
     <Button
         android:layout_width="wrap_content"
+        android:id="@+id/setColor"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/send_color_button"/>
+        android:text="@string/send_color_button"
+        android:clickable="true"
+        android:onClick="sendColor"/>
 
 </LinearLayout>
