@@ -18,12 +18,13 @@ public class Color_fragment extends Fragment implements SeekBar.OnSeekBarChangeL
     private SeekBar blue_bar;
     private Button setColor;
     CustomizationInterface pCustomization;
+    public int red_value, green_value, blue_value;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_color, parent, false);
         pCustomization = (CustomizationInterface) getActivity();
-        int red_value, green_value, blue_value;
         red_bar = (SeekBar) v.findViewById(R.id.red_bar);
         green_bar = (SeekBar)v.findViewById(R.id.green_bar);
         blue_bar = (SeekBar)v.findViewById(R.id.blue_bar);
@@ -91,6 +92,20 @@ public class Color_fragment extends Fragment implements SeekBar.OnSeekBarChangeL
 
     }
 
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
+    }
 }
 
 
