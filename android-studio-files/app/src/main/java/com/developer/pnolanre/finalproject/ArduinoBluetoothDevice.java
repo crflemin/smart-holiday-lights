@@ -33,7 +33,7 @@ public class ArduinoBluetoothDevice {
     }
 
     public void changePattern(int patternIndex) throws ArduinoException {
-        if (patternIndex < 0 || patternIndex > mPatternCount)
+        if (patternIndex < 0 || patternIndex >= mPatternCount)
             throw new ArduinoException("Invalid pattern selection.");
 
         byte[] command = new byte[2];

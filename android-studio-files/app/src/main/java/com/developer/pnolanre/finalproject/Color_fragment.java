@@ -12,24 +12,36 @@ import android.widget.Toast;
 /**
  * Created by pnolanre on 11/23/2015.
  */
-public class Color_fragment extends Fragment implements SeekBar.OnSeekBarChangeListener {
+public class Color_fragment extends Fragment {
     private SeekBar red_bar;
     private SeekBar green_bar;
     private SeekBar blue_bar;
-    private Button setColor;
-    CustomizationInterface pCustomization;
+    private Button color_button;
+    private CustomizationInterface pCustomization;
     public int red_value, green_value, blue_value;
-
+    public static final int DEFAULT_RED = 125;
+    public static final int DEFAULT_GREEN = 0;
+    public static final int DEFAULT_BLUE = 125;
+    public static final int NUM_PATTERNS = 6;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_color, parent, false);
         pCustomization = (CustomizationInterface) getActivity();
         red_bar = (SeekBar) v.findViewById(R.id.red_bar);
+        red_bar.setProgress(DEFAULT_RED);
         green_bar = (SeekBar)v.findViewById(R.id.green_bar);
+        green_bar.setProgress(DEFAULT_GREEN);
         blue_bar = (SeekBar)v.findViewById(R.id.blue_bar);
+        blue_bar.setProgress(DEFAULT_BLUE);
+        color_button = (Button)v.findViewById(R.id.color_button);
+        color_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendColor();
+            }
+        });
         red_bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            int red_value = 0;
 
             @Override
             public void onProgressChanged(SeekBar red_bar, int progress, boolean userInput) {
@@ -37,17 +49,12 @@ public class Color_fragment extends Fragment implements SeekBar.OnSeekBarChangeL
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar red_bar) {
-                Toast.makeText(getContext(), "Setting Red Value", Toast.LENGTH_SHORT).show();
-            }
+            public void onStartTrackingTouch(SeekBar red_bar) {}
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
         green_bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            int green_value;
 
             @Override
             public void onProgressChanged(SeekBar green_bar, int progress, boolean userInput) {
@@ -55,18 +62,12 @@ public class Color_fragment extends Fragment implements SeekBar.OnSeekBarChangeL
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(getContext(), "Setting Green Value", Toast.LENGTH_SHORT).show();
-                ;
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
         blue_bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            int blue_value;
 
             @Override
             public void onProgressChanged(SeekBar blue_bar, int progress, boolean userInput) {
@@ -74,38 +75,18 @@ public class Color_fragment extends Fragment implements SeekBar.OnSeekBarChangeL
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(getContext(), "Setting Blue Value", Toast.LENGTH_SHORT).show();
-                ;
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
         return v;
     }
 
-    public void sendColor(View view) {
+    public void sendColor() {
         pCustomization.setColor(red_value, green_value, blue_value);
-
     }
 
-    @Override
-    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
-    }
-
-    @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-
-    }
-
-    @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
-
-    }
 }
 
 
