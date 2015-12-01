@@ -32,12 +32,28 @@ public class Color_fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, final Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_color, parent, false);
         pCustomization = (CustomizationInterface) getActivity();
+
         red_bar = (SeekBar) v.findViewById(R.id.red_bar);
         red_bar.setProgress(DEFAULT_RED);
+        if (savedInstanceState != null)
+            red_value = savedInstanceState.getInt(KEY_RED, DEFAULT_RED);
+        else
+            red_value = DEFAULT_RED;
+
         green_bar = (SeekBar)v.findViewById(R.id.green_bar);
         green_bar.setProgress(DEFAULT_GREEN);
+        if (savedInstanceState != null)
+            green_value = savedInstanceState.getInt(KEY_GREEN, DEFAULT_GREEN);
+        else
+            green_value = DEFAULT_GREEN;
+
         blue_bar = (SeekBar)v.findViewById(R.id.blue_bar);
         blue_bar.setProgress(DEFAULT_BLUE);
+        if (savedInstanceState != null)
+            blue_value = savedInstanceState.getInt(KEY_BLUE, DEFAULT_BLUE);
+        else
+            blue_value = DEFAULT_BLUE;
+
         color_button = (Button)v.findViewById(R.id.color_button);
         color_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,13 +61,11 @@ public class Color_fragment extends Fragment {
                 sendColor();
             }
         });
+
         red_bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             @Override
             public void onProgressChanged(SeekBar red_bar, int progress, boolean userInput) {
-                if (savedInstanceState != null){
-                    red_value = savedInstanceState.getInt(KEY_RED,0);
-                }
                 red_value = progress;
             }
 
@@ -65,9 +79,6 @@ public class Color_fragment extends Fragment {
 
             @Override
             public void onProgressChanged(SeekBar green_bar, int progress, boolean userInput) {
-                if (savedInstanceState != null){
-                    green_value = savedInstanceState.getInt(KEY_GREEN,0);
-                }
                 green_value = progress;
             }
 
@@ -81,9 +92,6 @@ public class Color_fragment extends Fragment {
 
             @Override
             public void onProgressChanged(SeekBar blue_bar, int progress, boolean userInput) {
-                if (savedInstanceState != null){
-                    blue_value = savedInstanceState.getInt(KEY_BLUE,0);
-                }
                 blue_value = progress;
             }
 

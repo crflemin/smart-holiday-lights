@@ -31,8 +31,10 @@ public class Patterns_fragment extends Fragment implements RadioGroup.OnCheckedC
 
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int id){
-        int patternIndex = translateIdToIndex(id);
-        pCustomization.setPattern(patternIndex);
+        if (radioGroup.findViewById(id).isPressed()) {
+            int patternIndex = translateIdToIndex(id);
+            pCustomization.setPattern(patternIndex);
+        }
     }
     int translateIdToIndex(int id){
         int index = -1;

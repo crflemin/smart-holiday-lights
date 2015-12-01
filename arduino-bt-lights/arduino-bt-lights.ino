@@ -13,7 +13,7 @@ void setup() {
   strip.begin();
   
   colors[0] = 0;
-  colors[1] = 255;
+  colors[1] = 100;
   colors[2] = 0;
   
   patternType = 2;
