@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTabHost;
 import android.support.v4.app.FragmentTransaction;
 import android.widget.Button;
 import android.widget.RadioGroup;
@@ -16,7 +17,7 @@ import android.widget.Toast;
  * Created by pnolanre on 11/23/2015.
  */
 public class CustomizationActivity extends FragmentActivity implements CustomizationInterface {
-
+    private FragmentTabHost mTabHost;
     private static ArduinoBluetoothDevice sArduino;
 
     @Override
@@ -24,6 +25,15 @@ public class CustomizationActivity extends FragmentActivity implements Customiza
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customization_activity);
 
+        mTabHost = (FragmentTabHost)findViewById(R.id.tabhost);
+        if (mTabHost != null) {
+            mTabHost.setup(this, getSupportFragmentManager(), R.id.tabcontent);
+
+            mTabHost.addTab(mTabHost.newTabSpec("Color").setIndicator("Color"),
+                    Color_fragment.class, null);
+            mTabHost.addTab(mTabHost.newTabSpec("Pattern").setIndicator("Pattern"),
+                    Patterns_fragment.class, null);
+        }
     }
 
     public static void setArduino(BluetoothSocket socket) throws ArduinoException {

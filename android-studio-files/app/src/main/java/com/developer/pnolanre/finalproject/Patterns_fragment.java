@@ -17,11 +17,16 @@ import android.widget.Toast;
  */
 public class Patterns_fragment extends Fragment implements RadioGroup.OnCheckedChangeListener {
 
-    CustomizationInterface pCustomization;
+    private CustomizationInterface mCustomizationListener;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_patterns,parent, false);
-        pCustomization = (CustomizationInterface)getActivity();
+        mCustomizationListener = (CustomizationInterface)getActivity();
         RadioGroup group = (RadioGroup)v.findViewById(R.id.pattern_group);
         group.setOnCheckedChangeListener(this);
 
@@ -33,7 +38,7 @@ public class Patterns_fragment extends Fragment implements RadioGroup.OnCheckedC
     public void onCheckedChanged(RadioGroup radioGroup, int id){
         if (radioGroup.findViewById(id).isPressed()) {
             int patternIndex = translateIdToIndex(id);
-            pCustomization.setPattern(patternIndex);
+            mCustomizationListener.setPattern(patternIndex);
         }
     }
     int translateIdToIndex(int id){

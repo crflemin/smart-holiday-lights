@@ -5,9 +5,16 @@
     android:orientation="vertical"
     android:weightSum="1">
 
-    <ImageView
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="379dp"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        style="@style/AppTheme.Title"
+        android:layout_margin="20dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
         android:id="@+id/imageView"
         android:cropToPadding="true"
         android:adjustViewBounds="true"
@@ -30,7 +37,7 @@
         android:allowUndo="true" />
 
     <ProgressBar
-        style="?android:attr/progressBarStyleSmall"
+        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/progressBar"

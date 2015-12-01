@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:tools="http://schemas.android.com/tools">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
-    <fragment
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:name="com.developer.pnolanre.finalproject.Patterns_fragment"
-        android:id="@+id/customization_fragment"
-        tools:layout="@layout/fragment_patterns" />
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:name="com.developer.pnolanre.finalproject.Color_fragment"
-        android:id="@+id/color_fragment"
-        android:layout="@layout/fragment_color"
-        tools:layout="@layout/fragment_color" />
+        android:text="@string/customize"
+        style="@style/AppTheme.Title"
+        android:layout_margin="20dp"/>
 
+    <android.support.v4.app.FragmentTabHost
+        android:id="@+id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@+id/tabs"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <FrameLayout
+                android:id="@+id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="56dp"/>
+
+        </LinearLayout>
+    </android.support.v4.app.FragmentTabHost>
 </LinearLayout>

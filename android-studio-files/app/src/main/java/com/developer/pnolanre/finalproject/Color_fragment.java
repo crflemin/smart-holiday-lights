@@ -17,7 +17,7 @@ public class Color_fragment extends Fragment {
     private SeekBar green_bar;
     private SeekBar blue_bar;
     private Button color_button;
-    private CustomizationInterface pCustomization;
+    private CustomizationInterface mCustomizationListener;
     public int red_value, green_value, blue_value;
     public static final int DEFAULT_RED = 125;
     public static final int DEFAULT_GREEN = 0;
@@ -27,11 +27,15 @@ public class Color_fragment extends Fragment {
     public static final String KEY_GREEN="green";
     public static final String KEY_BLUE="blue";
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, final Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_color, parent, false);
-        pCustomization = (CustomizationInterface) getActivity();
+        mCustomizationListener = (CustomizationInterface) getActivity();
 
         red_bar = (SeekBar) v.findViewById(R.id.red_bar);
         red_bar.setProgress(DEFAULT_RED);
@@ -112,7 +116,7 @@ public class Color_fragment extends Fragment {
     }
 
     public void sendColor() {
-        pCustomization.setColor(red_value, green_value, blue_value);
+        mCustomizationListener.setColor(red_value, green_value, blue_value);
     }
 
 }

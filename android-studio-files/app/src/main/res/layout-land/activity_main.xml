@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="horizontal"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
               android:weightSum="1">
 
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        style="@style/AppTheme.Title"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:cropToPadding="true"
@@ -15,9 +28,10 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_gravity="center_vertical">
 
         <Button
             android:layout_width="wrap_content"
@@ -33,6 +47,14 @@
             android:id="@+id/customize_button"
             android:layout_gravity="center" />
 
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

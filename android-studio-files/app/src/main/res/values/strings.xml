@@ -18,5 +18,5 @@
     <string name="customize_failed_toast">Can\'t customize until you connect!</string>
     <string name="bluetooth_unsupported_toast">Bluetooth not supported on this device!</string>
     <string name="error_connecting_toast">Connection failed...</string>
-
+    <string name="customize">Customize Lights</string>
 </resources>
