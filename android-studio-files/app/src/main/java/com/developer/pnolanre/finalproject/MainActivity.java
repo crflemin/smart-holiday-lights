@@ -6,9 +6,11 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -19,18 +21,26 @@ public class MainActivity extends Activity {
     private Button mBluetoothButton;
     private Button mCustomizeButton;
     protected BluetoothAdapter mAdapter;
-    private BluetoothThread mThread;
+    private BluetoothTask mThread;
     protected boolean mConnected;
-
+    protected ProgressBar mProgressBar;
     private final int BLUETOOTH_REQUEST_CODE = 42;
+    private final String KEY_CONNECTED = "isConnected";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mConnected = false;
+        if (savedInstanceState != null) {
+            mConnected = savedInstanceState.getBoolean(KEY_CONNECTED, false);
+        }
+        else
+            mConnected = false;
+
         mAdapter = BluetoothAdapter.getDefaultAdapter();
+
+        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         mBluetoothButton = (Button) findViewById(R.id.bluetooth_button);
         mBluetoothButton.setOnClickListener(new View.OnClickListener() {
@@ -70,13 +80,13 @@ public class MainActivity extends Activity {
     private void startBluetoothThread(){
         try {
 
-            mThread = new BluetoothThread();
-            Toast.makeText(MainActivity.this, "Connecting...",Toast.LENGTH_LONG).show();
-            mThread.start();
+            mThread = new BluetoothTask();
+            mThread.execute();
         } catch (Exception e) {
             Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if (requestCode == BLUETOOTH_REQUEST_CODE) {
@@ -84,14 +94,20 @@ public class MainActivity extends Activity {
         }
     }
 
-    private class BluetoothThread extends Thread {
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putBoolean(KEY_CONNECTED, mConnected);
+    }
+
+    private class BluetoothTask extends AsyncTask<Integer, Integer, Boolean> {
 
         private BluetoothDevice mDevice;
         private BluetoothSocket mSocket;
         // this is a standard UUID for most bluetooth devices, and it happens to work for the arduino's transmitter! :)
         private final UUID DEFAULT_UUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
 
-        public BluetoothThread() throws Exception {
+        public BluetoothTask() throws Exception {
             Set<BluetoothDevice> pairedDevices = mAdapter.getBondedDevices();
             if (pairedDevices.size() > 0) {
                 for (BluetoothDevice device : pairedDevices) {
@@ -103,7 +119,14 @@ public class MainActivity extends Activity {
                 throw new ArduinoException("No paired device found.");
         }
 
-        public void run() {
+        @Override
+        protected void onPreExecute() {
+            Toast.makeText(MainActivity.this, R.string.connecting,Toast.LENGTH_SHORT).show();
+            mProgressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected Boolean doInBackground(Integer... params){
             try {
                 mSocket.connect();
                 CustomizationActivity.setArduino(mSocket);
@@ -112,12 +135,28 @@ public class MainActivity extends Activity {
                 try {
                     mSocket.close();
                 }
-                catch (IOException closeException) { }
-                return;
-            }
-            catch (ArduinoException aException) {}
+                catch (IOException closeException) {
+                    return false;
+                }
 
-            mConnected = true;
+            }
+            catch (ArduinoException aException) {
+                return false;
+            }
+            return true;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean didConnect) {
+            mProgressBar.setVisibility(View.VISIBLE);
+            if (didConnect) {
+                mConnected = true;
+                Toast.makeText(MainActivity.this, R.string.connection_succeeded, Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MainActivity.this, CustomizationActivity.class);
+                startActivity(i);
+            }
+            else
+                Toast.makeText(MainActivity.this, R.string.connection_failed,Toast.LENGTH_SHORT).show();
         }
     }
 }

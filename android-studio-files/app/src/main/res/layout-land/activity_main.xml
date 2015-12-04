@@ -18,43 +18,44 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:cropToPadding="true"
-        android:adjustViewBounds="true"
-        android:src="@drawable/christmas_penguin" />
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:cropToPadding="true"
+            android:adjustViewBounds="true"
+            android:src="@drawable/christmas_penguin" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_gravity="center_vertical">
-
-        <Button
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/bluetooth_button"
-            android:id="@+id/bluetooth_button"
-            android:layout_gravity="center" />
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center_vertical">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/customize_button"
-            android:id="@+id/customize_button"
-            android:layout_gravity="center" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bluetooth_button"
+                android:id="@+id/bluetooth_button"
+                android:layout_gravity="center" />
 
-        <ProgressBar
-            style="?android:attr/progressBarStyleLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/progressBar"
-            android:layout_gravity="center_horizontal" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/customize_button"
+                android:id="@+id/customize_button"
+                android:layout_gravity="center" />
 
-    </LinearLayout>
+            <ProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressBar"
+                android:layout_gravity="center_horizontal"
+                android:visibility="invisible" />
+
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

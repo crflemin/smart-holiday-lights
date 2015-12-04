@@ -19,4 +19,7 @@
     <string name="bluetooth_unsupported_toast">Bluetooth not supported on this device!</string>
     <string name="error_connecting_toast">Connection failed...</string>
     <string name="customize">Customize Lights</string>
+    <string name="connection_succeeded">Success! Connected!</string>
+    <string name="connection_failed">Connection failed...</string>
+    <string name="connecting">Connecting...</string>
 </resources>
