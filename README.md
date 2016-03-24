@@ -7,12 +7,12 @@ Find a quick demo on YouTube:
 https://www.youtube.com/watch?v=9bTaO92Tq1Y
 
 Materials:
-●	Android Phone
-●	Arduino Uno Board
-●	Kedsum Arduino Bluetooth Transceiver
-●	Adafruit Neopixel Light Strip
-●	9V Battery 
-●	Miscellaneous Wires, Resistors, and a Breadboard
+* Android Phone
+* Arduino Uno Board
+* Kedsum Arduino Bluetooth Transceiver
+* Adafruit Neopixel Light Strip
+* 9V Battery 
+* Miscellaneous Wires, Resistors, and a Breadboard
 
 This project was designed and implemented in collaboration with Pearl Olanrewaju and Anusha Srivatsa as a final course project.
 Project files require Android Studio and the Arduino IDE for build and deployment. See the design doc for setup and usage instructions. 
